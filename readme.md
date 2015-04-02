@@ -6,9 +6,9 @@ To use:
 
 * Get all the cities: `http://yourproject.com/api/cities`
 
-* Get all the zipcodes: `http://yourproject.com/api/cities/{$id_city}`
+* Get all the zipcodes: `http://yourproject.com/api/cities/{id_city}`
 
-* Get the province of the city: `http://yourproject.com/api/cities/{$id_city}/province`
+* Get the province of the city: `http://yourproject.com/api/cities/{id_city}/province`
 
 * Get all the provinces: `http://yourproject.com/api/provinces`
 
