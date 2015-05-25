@@ -2,6 +2,7 @@
 /vendor
 /app/config/local/*
 composer.lock
+composer.phar
 .env.*.php
 .env.php
 .DS_Store

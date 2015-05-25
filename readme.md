@@ -4,17 +4,17 @@
 
 To use:
 
-* Get all the cities: `http://yourproject.com/api/cities`
+* Get all the cities: `http://localhost:8000/api/cities`
 
-* Get all the zipcodes: `http://yourproject.com/api/cities/{id_city}`
+* Get all the zipcodes: `http://localhost:8000/api/cities/{id_city}`
 
-* Get the province of the city: `http://yourproject.com/api/cities/{id_city}/province`
+* Get the province of the city: `http://localhost:8000/api/cities/{id_city}/province`
 
-* Get all the provinces: `http://yourproject.com/api/provinces`
+* Get all the provinces: `http://localhost:8000/api/provinces`
 
-* Get all the cities within a province `http://yourproject.com/api/provinces/{id_province}/city *`
+* Get all the cities within a province `http://localhost:8000/api/provinces/{id_province}/city *`
 
-* Get all the barangay within a city `http://yourproject.com/api/provinces/{id_province}/city/{id_city}`
+* Get all the barangay within a city `http://localhost:8000/api/provinces/{id_province}/city/{id_city}`
 
 Notes:
 
@@ -22,15 +22,19 @@ Notes:
 
 To install:
 
-- Make sure you have `composer` installed in your machine. If not yet installed, follow instruction here: https://getcomposer.org/doc/00-intro.md
+- Fork this project and clone into your machine.
 
-- Do a `composer install` before you spin up the project.
+- Go to your project root and install `composer` if not yet installed. You can download the file here [composer](https://getcomposer.org/download/)
+
+- If you have installed it globally, do a `composer install` but if the composer file is in your root dir, do a `php composer.phar install`
 
 - Make the storage directory writable by `chmod -R 777 app/storage`.
 
 - Add a database named `mcpro`. You do it in phpmyadmin or in GUI.
 
 - Migrate and seed the files by using `php artisan migrate --seed`.
+
+- Run `php artisan serve` and go [localhost](http://localhost:8000)
 
 - Checkout the instruction on how to use the API in the homepage. 
 
