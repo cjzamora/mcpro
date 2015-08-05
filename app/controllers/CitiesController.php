@@ -97,7 +97,13 @@ class CitiesController extends \BaseController {
 
 	public function showCitiesByName($city)
 	{
-		return Response::json(Cities::where('name', $city)->get()->toArray());
+		$cities = Cities::where('name', $city)->get()->toArray();
+
+		if(count($cities) > 0) {
+			return Response::json();
+		}
+
+		return Response::json(array('status' => 'error', 'message' => 'Province and City combination mismatch or No result found.'));
 	}
 
 	public function showCitiesAndBarangays($city)
@@ -108,12 +114,20 @@ class CitiesController extends \BaseController {
 				->where('name', urldecode($city))
 				->get();
 
+		if(count($city) == 0) {
+			return Response::json(array('status' => 'error', 'message' => 'Province and City combination mismatch or No result found.'));
+		}
+
 		$barangays  = DB::table('barangay')
 					->select('id', 'name')
 					->where('id_city', $city[0]->id)
 					->get();
 
-		//Get all provinces
-		return Response::json($barangays);
+		if(count($barangays) > 0) {
+			//Get all provinces
+			return Response::json($barangays);
+		}
+
+		return Response::json(array('status' => 'error', 'message' => 'Province and City combination mismatch or No result found.'));
 	}
 }
