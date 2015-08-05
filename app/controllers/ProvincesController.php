@@ -116,5 +116,27 @@ class ProvincesController extends \BaseController {
 	public function showProvince()
 	{
 		return Response::json(Provinces::all()->toArray());
-	}	
+	}
+
+	public function showProvinceByName($province)
+	{
+		return Response::json(Provinces::where('name', $name)->get()->toArray());
+	}
+
+	public function showProvinceAndCities($province)
+	{
+		//GET THE PROVINCE ID
+		$province = DB::table('provinces')
+					->select('id', 'name')
+					->where('name', urldecode($province))
+					->get();
+
+		$cities   = DB::table('cities')
+					->select('id', 'name')
+					->where('province_id', $province[0]->id)
+					->get();
+
+		//Get all provinces
+		return Response::json($cities);
+	}
 }

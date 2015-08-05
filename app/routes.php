@@ -10,8 +10,12 @@
 | and give it the Closure to execute when that URI is requested.
 |
 */
+Route::resource('/api/cities/{name}/barangays', 'CitiesController@showCitiesAndBarangays');
+Route::resource('/api/cities/{name}', 			'CitiesController@showCitiesByName');
 Route::resource('/api/cities', 					'CitiesController');
 Route::resource('/api/cities/{id}/province', 	'CitiesController@showProvince');
+Route::resource('/api/provinces/{name}/cities', 'ProvincesController@showProvinceAndCities');
+Route::resource('/api/provinces/{name}', 		'ProvincesController@showProvinceByName');
 Route::resource('/api/provinces', 				'ProvincesController@showProvince');
 Route::resource('/api/provinces.city', 			'ProvincesController');
 Route::get('/', 'HomeController@showWelcome');

@@ -93,5 +93,27 @@ class CitiesController extends \BaseController {
 		$data = Provinces::find($province->province_id);
 
 		return Response::json($data);
-	}	
+	}
+
+	public function showCitiesByName($city)
+	{
+		return Response::json(Cities::where('name', $city)->get()->toArray());
+	}
+
+	public function showCitiesAndBarangays($city)
+	{
+		//GET THE CITY ID
+		$city = DB::table('cities')
+				->select('id', 'name')
+				->where('name', urldecode($city))
+				->get();
+
+		$barangays  = DB::table('barangay')
+					->select('id', 'name')
+					->where('id_city', $city[0]->id)
+					->get();
+
+		//Get all provinces
+		return Response::json($barangays);
+	}
 }
