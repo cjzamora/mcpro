@@ -2,11 +2,11 @@ Header always set Access-Control-Allow-Headers "X-Access-Token"
 Header always set Access-Control-Allow-Methods "PUT, GET, POST, DELETE, OPTIONS"
 
 <IfModule mod_rewrite.c>
-    Options +FollowSymLinks
-    RewriteEngine On
-    RewriteBase /
+	Options +FollowSymLinks
+	RewriteEngine On
+	RewriteBase /
 
-    RewriteCond %{REQUEST_FILENAME} !-d
-    RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.php [L]
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteRule ^ index.php [L]
 </IfModule>
